@@ -1,0 +1,85 @@
+h1.khong-dong-tab {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    margin: auto;
+    text-align: center;
+    font-size: 45px;
+    color: #ee4d2d;
+}
+.bi-ext-day-sp {
+    position: fixed;
+    top: 3px;
+    z-index: 9999;
+    left: 50%;
+}
+.shopee-button--small{
+    margin: 3px;
+}
+body.bi-hide-screen {
+    /*opacity: 0.5;*/
+}
+
+body.bi-hide-screen:after {content: "";background: #38695b5c;position: fixed;width: 100%;height: 100%;left: 0;z-index: 9999;top: 0;}
+
+.fz-12{
+	font-size: 12px;
+}
+.pull-right{
+	float:right;
+}
+#search_customer .spinner-border{
+	width:15px;
+	height:15px;
+}
+#auto_system_extension .time_ext{
+	width: 160px;
+}
+.auto_system_exten_time_delay{
+	margin-top:8px;
+}
+#image_url{
+	width: calc(100% - 42px);
+}
+div#auto_system_id_message_sent {
+    font-size: 18px;
+	display:inline-block;
+	float:right;
+}
+.inline-block{
+	display:inline-block;
+}
+button#button_send {
+    padding-right: 15px;
+}
+#auto_system_extension a:hover{
+	text-decoration:none;
+}
+.cai_uid_link{
+    float: right;
+}
+.cai_send_option {
+    display: inline-block;
+}
+.show-select-images img {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin-left: 5px;
+    /*max-width: 42px;*/
+    max-height: 35px;
+    padding: 2px;
+}
+.auto-inbox .box-ds-group,
+.auto-inbox #button_upload_image,
+.auto-inbox #group_select,
+.auto-inbox .fanpage-auto-inbox,
+.auto-post #group_select,
+.auto-post .box-ds-kh,
+.auto-post #page_select,
+.auto-post .group-auto-post,
+.auto-post #search_customer,
+.auto-post button#button_send {
+    display: none;
+}

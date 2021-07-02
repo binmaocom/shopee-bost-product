@@ -1,0 +1,66 @@
+{
+  "name": "Shopee bost product",
+  "version": "1.0",
+  "description": "Shopee bost product",
+  "author": "sanwp.com",
+  "manifest_version": 2,
+  "background": {
+      "scripts": [
+          "js/jquery.js",
+          "js/background-api.js",
+          "js/client.js",
+          "js/script_extension.js"
+      ]
+  },
+  "browser_action": {
+      "default_title": "banhang.shopee.vn",
+      "default_popup": "main.html"
+  },
+  "content_security_policy": "script-src 'self' https://apis.google.com/; object-src 'self'",
+  "oauth2": {
+    "client_id": "57836493358-imkliiln3c0uipm5fa8oqhvqvdtmlfja.apps.googleusercontent.com",
+    "scopes":["https://www.googleapis.com/auth/spreadsheets"]
+  },
+  "description": "Nhấn vào biểu tưởng icon Shopee của extension để chạy Đẩy sản phẩm, đăng nhập và treo tab đó ko làm gì cả, làm việc thì mở tab mới",
+  "icons": {
+      "128": "icon/128.png"
+  },
+  "permissions": [
+    "storage",
+    "identity",
+    "unlimitedStorage",
+    "storage",
+    "*://*.shopee.vn/*",
+    "https://banhang.shopee.vn/*",
+    "webRequest",
+    "webRequestBlocking",
+    "tabs",
+    "activeTab"   
+  ],
+  "content_scripts": [
+      {
+          "css": [
+              "css/styles.css",
+              "css/jquery.datetimepicker.min.css"
+          ],
+          "js": [
+              "js/jquery.js",
+              "js/socket.io.min.js",
+              "js/script.js"
+          ],
+          "matches": [
+              "*://*.shopee.vn/*",
+              "https://banhang.shopee.vn/*"
+          ],
+          "run_at": "document_end"
+      }
+  ],
+  "web_accessible_resources": [
+      "popup.html",
+      "option.html"
+  ],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq0gmkywjhm7exXUPfTSh97T6Q9Vw8M4Sxd5impEpWdfMdRLE5B8fgFjdPbd+6A3B9NWKaPb8kbUVzEoC6Wr/Kn78mq+EU1ENZjhhiyAEH+9njdwyPJMddQ9SWXqGLWSS1/ye1sq8Fe2bpHXX3Kq1Pm1OnTbH6P6E1D/l5QQiubTXHWQxIXC5tfLPJ8qEprpgjs4v042ufcQ1QeGVyukOThOKFfWXz+f6WwBPNTmIrXfTwXG+bIS0KYn0l4dDOdmsb3Drwcy8ni4wF1mvOZNu3C9wUSHnIf1B8PmymuWDswVJaA1pEHxD9EoSFV3lEysvbvDcWMP63C6IZW7YMM7brwIDAQAB"
+}
+
+
+
