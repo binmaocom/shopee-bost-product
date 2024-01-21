@@ -86,7 +86,7 @@ jQuery(document).ready(function($){
 		event.preventDefault();
 		localStorage.setItem('danhsach_sp', shopee_list_products);
 		chrome.tabs.create({
-		    url: "https://banhang.shopee.vn/portal/product/list/active?page=1&size=100&search=id&keyword="+shopee_list_products
+		    url: "https://banhang.shopee.vn/portal/product/list/active?page=1&bi_action=auto_bost&searchType=id&keyword="+shopee_list_products
 		}, function(tab) {  });
 	});
 	$('.btn-ket-noi-tk').click(function(event){
