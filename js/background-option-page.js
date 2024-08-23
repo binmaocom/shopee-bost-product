@@ -74,7 +74,11 @@ function func_get_list_product_to_run(){
 
 	});
 }
-
+function get_link_id_to_click_up_button(list_prd_to_up){
+    var list_prd_to_up_arr = list_prd_to_up.split(',');
+    var item = list_prd_to_up_arr[Math.floor(Math.random()*list_prd_to_up_arr.length)];
+    return item;
+}
 jQuery(document).ready(function($){
 	chrome.storage.local.get(['SPREADSHEET_ID','SPREADSHEET_TAB_NAME', 'shopee_list_products'], function(items){
 		console.log(items);
@@ -86,7 +90,7 @@ jQuery(document).ready(function($){
 		event.preventDefault();
 		localStorage.setItem('danhsach_sp', shopee_list_products);
 		chrome.tabs.create({
-		    url: "https://banhang.shopee.vn/portal/product/list/active?page=1&bi_action=auto_bost&searchType=id&keyword="+shopee_list_products
+		    url: "https://banhang.shopee.vn/portal/product/list/active?page=1&bi_action=auto_bost&searchType=id&keyword="+get_link_id_to_click_up_button(shopee_list_products)
 		}, function(tab) {  });
 	});
 	$('.btn-ket-noi-tk').click(function(event){
