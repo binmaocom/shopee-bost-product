@@ -1,6 +1,11 @@
 /*
 All action on the frontend
 */
+function get_link_id_to_click_up_button(list_prd_to_up){
+    var list_prd_to_up_arr = list_prd_to_up.split(',');
+    var item = list_prd_to_up_arr[Math.floor(Math.random()*list_prd_to_up_arr.length)];
+    return item;
+}
 chrome.storage.local.get('shopee_list_products', function(items){
     //  items = [ { "phasersTo": "awesome" } ]
     localStorage.setItem('danhsach_sp', items.shopee_list_products);
@@ -13,7 +18,7 @@ chrome.storage.local.get('shopee_list_products', function(items){
             if(!window.location.href.includes('bi_action=auto_bost')){
                 $('body').append('<div class="bi-ext-day-sp"><a class="shopee-button shopee-button--primary shopee-button--small" target="_blank" '
                     +'href="'
-                    + 'https://banhang.shopee.vn/portal/product/list/active?page=1&bi_action=auto_bost'+'&searchType=id&keyword='+localStorage.getItem('danhsach_sp')
+                    + 'https://banhang.shopee.vn/portal/product/list/active?page=1&bi_action=auto_bost'+'&searchType=id&keyword='+get_link_id_to_click_up_button(localStorage.getItem('danhsach_sp'))
                     +'">Đẩy SP</a>'
                     +'<!--<a class="shopee-button shopee-button--primary shopee-button--small btn-nhap-sp" href>Nhập danh sách ID sản phẩm</a>-->'
                     +'<a class="shopee-button shopee-button--primary shopee-button--small btn-cai-dat-sheetID"'
@@ -25,7 +30,7 @@ chrome.storage.local.get('shopee_list_products', function(items){
                     if (danhsach_sp != null) {
                       // alert(danhsach_sp);
                       localStorage.setItem('danhsach_sp', danhsach_sp);
-                      window.location.href = 'https://banhang.shopee.vn/portal/product/list/active?page=1&bi_action=auto_bost'+'&searchType=id&keyword='+localStorage.getItem('danhsach_sp');
+                      window.location.href = 'https://banhang.shopee.vn/portal/product/list/active?page=1&bi_action=auto_bost'+'&searchType=id&keyword='+get_link_id_to_click_up_button(localStorage.getItem('danhsach_sp'));
                     }
                 })
             }else{
@@ -34,7 +39,7 @@ chrome.storage.local.get('shopee_list_products', function(items){
                 $('body').prepend('<h1 class="khong-dong-tab">Không đóng tab này</h1>');
                 setTimeout(function(){
                     // window.location.reload();
-                    window.location.href = 'https://banhang.shopee.vn/portal/product/list/active?page=1&bi_action=auto_bost'+'&searchType=id&keyword='+localStorage.getItem('danhsach_sp');
+                    window.location.href = 'https://banhang.shopee.vn/portal/product/list/active?page=1&bi_action=auto_bost'+'&searchType=id&keyword='+get_link_id_to_click_up_button(localStorage.getItem('danhsach_sp'));
                 }, 600*1000);
             }
             var current_shop_token_id = '';
@@ -78,7 +83,9 @@ chrome.storage.local.get('shopee_list_products', function(items){
 
                             var intval_check_product_by_index = setInterval(function(){
                                 if($('.count-cool').length == 5){
-                                    window.location.reload();
+                                    // window.location.reload();
+                                    localStorage.setItem('danhsach_sp', danhsach_sp);
+                                      window.location.href = 'https://banhang.shopee.vn/portal/product/list/active?page=1&bi_action=auto_bost'+'&searchType=id&keyword='+get_link_id_to_click_up_button(localStorage.getItem('danhsach_sp'));
                                     auto_click_to_up_product();
                                 }
 
